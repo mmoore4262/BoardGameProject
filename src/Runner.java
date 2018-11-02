@@ -10,10 +10,14 @@ public class Runner {
         {
             for (int y=0; y<board[x].length; y++)
             {
-                //board now holds [i] sets of [j] sets of BoardSpaces
+                //board now holds [x] sets of [y] sets of BoardSpaces
                 board[x][y]=new BoardSpaces(x,y);
             }
         }
+
+        Player avatar= new Player("Place", "Holder");
+
+
 
     }
 }

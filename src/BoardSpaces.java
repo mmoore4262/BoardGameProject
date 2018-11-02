@@ -5,11 +5,13 @@ public class BoardSpaces {
     //Will probably need a player field soon.
     private int x;
     private int y;
+    private Player p;
     public BoardSpaces (int x, int y)
     {
         this.x=x;
         this.y=y;
     }
+    public
     // need to think of a theme for the board game before I create new classes
 
 }
