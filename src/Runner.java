@@ -6,7 +6,11 @@ public class Runner {
     public static void main(String[] args)
     {
         String test="[X]";
-        int gTally
+        //Perhaps create the goblin objects, then simply place them in board spaces array. When creating the generic dark spaces, check if the space in board spaces array is occupied
+        //and skip over it if it is. There may be an out of bounds error. Perhaps board.length-3 in for loop condition will solve problem.
+        int [][] gSpace1= new int [1][1];
+        int [][] gSpace2=new int [1][1];
+        int [][] gSpace3=new int [1][1];
 
         //initialize board to hold any number of BoardSpaces
         BoardSpaces[][] board = new BoardSpaces[15][10];
