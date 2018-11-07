@@ -10,5 +10,5 @@ public class Player {
         this.last=last;
     }
 
-    public
+    //public
 }
