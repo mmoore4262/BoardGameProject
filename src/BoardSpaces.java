@@ -12,11 +12,11 @@ public class BoardSpaces {
         this.x=x;
         this.y=y;
     }
-    public String changeString()
+    public String toString()
 
     {
 
-        return null;
+        return "[X]";
     }
 
 

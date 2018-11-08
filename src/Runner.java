@@ -6,33 +6,64 @@ public class Runner {
     public static void main(String[] args)
     {
         String test="[X]";
-        //Perhaps create the goblin objects, then simply place them in board spaces array. When creating the generic dark spaces, check if the space in board spaces array is occupied
-        //and skip over it if it is. There may be an out of bounds error. Perhaps board.length-3 in for loop condition will solve problem.
-        int [][] gSpace1= new int [1][1];
-        int [][] gSpace2=new int [1][1];
-        int [][] gSpace3=new int [1][1];
+        //System.out.println((int)Math.floor(Math.random() * (14 - 0)) + 0);
+
+        GoblinSpace[] gSpaces= new GoblinSpace[3];
+        for (int i=0; i<gSpaces.length; i++)
+        {
+            gSpaces[i]=new GoblinSpace((int)Math.floor(Math.random() * (14)) , i);
+            System.out.println( "x " +gSpaces[i].returnX());
+            System.out.println("y "+gSpaces[i].returnY());
+        }
+
+
 
         //initialize board to hold any number of BoardSpaces
         BoardSpaces[][] board = new BoardSpaces[15][10];
+        int iG=0;
         //fill the board indexes with normal BoardSpaces
         for (int x=0; x<board.length; x++)
         {
             for (int y=0; y<board[x].length; y++)
             {
-                //board now holds [x] sets of [y] sets of BoardSpaces
 
-                board[x][y]=new BoardSpaces(x,y);
+                if (iG!=3)
+                {
+                    if (gSpaces[iG].returnX()==x && gSpaces[iG].returnY()==y)
+                    {
+                        board[x][y]=gSpaces[iG];
+                        iG++;
+                    }
+                    else
+                    {
+                        board[x][y]=new BoardSpaces(x,y);
+                    }
+                }
+                //board now holds [x] sets of [y] sets of BoardSpaces
+                else
+                {
+                    board[x][y]=new BoardSpaces(x,y);
+                }
+
 
             }
         }
 
-        System.out.println("You've been commissioned to hunt some goblins in a dark garden This is the layout of the garden presently: \n \n ");
+
+        System.out.println("You've been commissioned to hunt some goblins in a dark garden. This is the layout of the garden presently: \n \n ");
         System.out.println(" 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14");
 
-        for (int i=0; i<10; i++)
+
+        for (int y=0; y<15; y++)
         {
-            System.out.println( new String(new char[15]).replace("\0", test) +(i));
+            for (int x=0; x<15; x++)
+            {
+                System.out.println(x +""+ y);
+                System.out.print(board[x][y].toString());
+            }
+            System.out.println();
         }
+
 
         System.out.println("If you understand, press y then enter");
         Scanner input= new Scanner(System.in);

@@ -5,10 +5,22 @@ public class GoblinSpace extends BoardSpaces {
     private int gPosX;
     private int gPosY;
     private Player p;
-    public GoblinSpace(int x, int y, int gSpace)
+    public GoblinSpace(int x, int y)
     {
         super (x,y);
-        this.gPosX=gPosX;
-        this.gPosY=gPosY;
+        this.gPosX=x;
+        this.gPosY=y;
+    }
+    public int returnX()
+    {
+        return this.gPosX;
+    }
+    public int returnY()
+    {
+        return this.gPosY;
+    }
+    public String toString()
+    {
+        return "[G]";
     }
 }
